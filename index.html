@@ -22,65 +22,6 @@
     and end its trajectory across the screen. Each rule
     represents a path the element follows across the screen. */
 
-
-
-#navbar {  
-  background-color: #333;  
-  position: fixed;  
-  top: 50px;  
-  width: 100%;  
-  display: block;  
-  transition: top 0.3s;  
-}  
-
-#navbar a {  
-  float: left;  
-  display: block;  
-  color: #f2f2f2;  
-  text-align: center;  
-  padding: 15px;  
-  text-decoration: none;  
-  font-size: 17px;  
-}  
-
-#navbar a:hover {  
-  background-color: #ddd;  
-  color: black;  
-}  
-ul {  
-  list-style-type: none;  
-  margin: 0;  
-  padding: 0;  
-  overflow: hidden;  
-  background-color: #333;  
-}  
-
-li {  
-  float: left;  
-}  
-
-li a {  
-  display: block;  
-  color: white;  
-  text-align: center;  
-  padding: 14px 16px;  
-  text-decoration: none;  
-}  
-
-li a:hover:not(.active) {  
-  background-color: #111;  
-}  
-
-.active {  
-  background-color: #04AA6D;  
-}  
-ul {  
-  position: fixed;  
-  top: 0;  
-  width: 100%;  
-}  
-
-
 * {
   box-sizing: border-box;
 }
@@ -203,8 +144,6 @@ h1 {
 </head>
 <body>
 
-<div class="flier"><img src="https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.0/c_scale,w_400/ncom/software/switch/70010000000457/desc/a62a1f0615f7e761bccff3e2e9137ddf2ab87b668bed0dbac7db64ca7a2a40a3" width="200"/></div>
-
 
 
 <script>
@@ -218,7 +157,36 @@ function closeNav() {
 </script>
 
 
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
 
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+	
+li a:hover {
+  background-color: #111;
+}
+
+.active {
+  background-color: #04AA6D;
+}
 
 
 <!--<div class="topnav" id="arial">
@@ -229,10 +197,10 @@ function closeNav() {
 </div>-->
 
 <ul>
-  <li><a class="active" href="#home">Home</a></li>
-  <li><a href="#facts">Facts</a></li>
-  <li><a href="#places">Places</a></li>
-    <li><a href="#languages">Languages</a></li>
+  <li><a class="active" href="#whatdowedo">What we do?</a></li>
+  <li><a class="active" href="#whyarewedoingthis">But why?</a></li>
+  <li><a class="active" href="#whatcanyoudo">So, what can I do?</a></li>
+  <li style="float:right"><a class="active" href="#editor">Editor and Credits</a></li>
 </ul>
 
 <div class="header">
@@ -241,13 +209,48 @@ function closeNav() {
 </div>
 
 
-
 <div class="row">
   <div class="leftcolumn">
     <div class="card">
       <h2 href="#whatdowedo" id="arial">What is this website</h2>
       <p id="arial">gdfgdfgdfgdfgdfgdfgdfgd</p>
       <p id="arial">gdfggfdfgdfgdfgd</p>
+	    <p id="arial">gdfggfdfgdfgdfgd</p>
+	    <p id="arial">gdfggfdfgdfgdfgd</p>
+
+	    <p id="arial">gdfggfdfgdfgdfgd</p>
+	    <p id="arial">gdfggfdfgdfgdfgd</p>
+	    <p id="arial">gdfggfdfgdfgdfgd</p>
+	    <p id="arial">gdfggfdfgdfgdfgd</p>
+	    <p id="arial">gdfggfdfgdfgdfgd</p>
+	    <p id="arial">gdfggfdfgdfgdfgd</p>
+	    <p id="arial">gdfggfdfgdfgdfgd</p>
+	    <p id="arial">gdfggfdfgdfgdfgd</p>
+	    <p id="arial">gdfggfdfgdfgdfgd</p>
+	    <p id="arial">gdfggfdfgdfgdfgd</p>
+	    <p id="arial">gdfggfdfgdfgdfgd</p>
+	    <p id="arial">gdfggfdfgdfgdfgd</p>
+	    <p id="arial">gdfggfdfgdfgdfgd</p>
+	    <p id="arial">gdfggfdfgdfgdfgd</p>
+	    <p id="arial">gdfggfdfgdfgdfgd</p>
+
+	    <p id="arial">gdfggfdfgdfgdfgd</p>
+	    <p id="arial">gdfggfdfgdfgdfgd</p>
+	    <p id="arial">gdfggfdfgdfgdfgd</p>
+	    <p id="arial">gdfggfdfgdfgdfgd</p>
+
+	    <p id="arial">gdfggfdfgdfgdfgd</p>
+	    <p id="arial">gdfggfdfgdfgdfgd</p>
+	    <p id="arial">gdfggfdfgdfgdfgd</p>
+	    <p id="arial">gdfggfdfgdfgdfgd</p>
+	    <p id="arial">gdfggfdfgdfgdfgd</p>
+	    <p id="arial">gdfggfdfgdfgdfgd</p>
+
+	    <p id="arial">gdfggfdfgdfgdfgd</p>
+	    <p id="arial">gdfggfdfgdfgdfgd</p>
+	    <p id="arial">gdfggfdfgdfgdfgd</p>
+	    <p id="arial">gdfggfdfgdfgdfgd</p>
+	    <p id="arial">gdfggfdfgdfgdfgd</p>
     </div>
   </div>
   <div class="rightcolumn">
