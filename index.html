@@ -1,270 +1,197 @@
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-.flier {
-	pointer-events: none;
-}
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <style>  
+        .flier {  
+            pointer-events: none;  
+        }  
 
-.flier > * {
-/* Adjust animation duration to change the element’s speed */
-        animation: fly 50s linear infinite;
-        pointer-events: none !important;
-	top: 0;
-	left: 0;
-	transform: translateX(-120%) translateY(-120%) rotateZ(0);
-	position: fixed;
-	animation-delay: 1s;
-	z-index: 999999;
-}
+        .flier > * {  
+            animation: fly 50s linear infinite;  
+            pointer-events: none !important;  
+            top: 0;  
+            left: 0;  
+            transform: translateX(-120%) translateY(-120%) rotateZ(0);  
+            position: fixed;  
+            animation-delay: 1s;  
+            z-index: 999999;  
+        }  
 
- /* Keyframe values control where the element will begin
-    and end its trajectory across the screen. Each rule
-    represents a path the element follows across the screen. */
+        * {  
+            box-sizing: border-box;  
+        }  
 
-* {
-  box-sizing: border-box;
-}
+        body {  
+            font-family: Arial;  
+            padding: 10px;  
+            background: rgb(234, 242, 232);  
+            background: linear-gradient(90deg, rgba(234, 242, 232, 1) 0%, rgba(234, 242, 232, 1) 100%);  
+        }  
 
-body {
-  font-family: Arial;
-  padding: 10px;
-  background: rgb(234,242,232);
-background: linear-gradient(90deg, rgba(234,242,232,1) 0%, rgba(234,242,232,1) 100%);
-}
+        .header {  
+            padding: 30px;  
+            text-align: center;  
+            background: rgb(182, 215, 168);  
+            background: linear-gradient(90deg, rgba(182, 215, 168, 1) 0%, rgba(182, 215, 168, 1) 100%);  
+        }  
 
-/* Header/Blog Title */
-.header {
-  padding: 30px;
-  text-align: center;
-  background: rgb(182,215,168);
-background: linear-gradient(90deg, rgba(182,215,168,1) 0%, rgba(182,215,168,1) 100%);
-}
+        .header h1 {  
+            font-size: 50px;  
+        }  
 
-.header h1 {
-  font-size: 50px;
-}
+        .topnav {  
+            overflow: hidden;  
+            background-color: #03540b;  
+        }  
 
-/* Style the top navigation bar */
-.topnav {
-  overflow: hidden;
-  background-color: #03540b;
-}
+        .topnav a {  
+            float: left;  
+            display: block;  
+            color: #ffffff;  
+            text-align: center;  
+            padding: 14px 16px;  
+            text-decoration: none;  
+        }  
 
-/* Style the topnav links */
-.topnav a {
-  float: left;
-  display: block;
-  color: #ffffff;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
+        .topnav a:hover {  
+            background-color: #ddd;  
+            color: black;  
+        }  
 
-/* Change color on hover */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
+        .leftcolumn {  
+            float: left;  
+            width: 75%;  
+        }  
 
-/* Create two unequal columns that floats next to each other */
-/* Left column */
-.leftcolumn {   
-  float: left;
-  width: 75%;
-}
+        .rightcolumn {  
+            float: left;  
+            width: 25%;  
+            background: rgb(234, 242, 232);  
+            padding-left: 20px;  
+        }  
 
-/* Right column */
-.rightcolumn {
-  float: left;
-  width: 25%;
-background: rgb(234,242,232);
-  padding-left: 20px;
-}
+        .fakeimg {  
+            background-color: #aaa;  
+            width: 100%;  
+            padding: 20px;  
+        }  
 
-/* Fake image */
-.fakeimg {
-  background-color: #aaa;
-  width: 100%;
-  padding: 20px;
-}
+        .card {  
+            background: rgb(217, 241, 249);  
+            background: rgb(234, 242, 232);  
+            padding: 20px;  
+            margin-top: 20px;  
+        }  
 
-	
-/* Add a card effect for articles */
-.card {
-  background: rgb(217,241,249);
-background: rgb(234,242,232);
-  padding: 20px;
-  margin-top: 20px;
-}
+        .row::after {  
+            content: "";  
+            display: table;  
+            clear: both;  
+        }  
 
-/* Clear floats after the columns */
-.row::after {
-  content: "";
-  display: table;
-  clear: both;
-}
+        .footer {  
+            padding: 20px;  
+            text-align: center;  
+            background: rgb(126, 229, 83);  
+            background: linear-gradient(90deg, rgba(126, 229, 83, 1) 0%, rgba(126, 229, 83, 1) 100%);  
+            margin-top: 20px;  
+        }  
 
-/* Footer */
-.footer {
-  padding: 20px;
-  text-align: center;
-  background: rgb(126,229,83);
-background: linear-gradient(90deg, rgba(126,229,83,1) 0%, rgba(126,229,83,1) 100%);
-  margin-top: 20px;
-}
+        @media screen and (max-width: 800px) {  
+            .leftcolumn, .rightcolumn {  
+                width: 100%;  
+                padding: 0;  
+            }  
+        }  
 
-/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 800px) {
-  .leftcolumn, .rightcolumn {   
-    width: 100%;
-    padding: 0;
-  }
-}
+        @media screen and (max-width: 400px) {  
+            .topnav a {  
+                float: none;  
+                width: 100%;  
+            }  
+        }  
 
-/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
-@media screen and (max-width: 400px) {
-  .topnav a {
-    float: none;
-    width: 100%;
-  }
-}
+        #arial {  
+            position: relative;  
+            font-family: Arial Black;  
+        }  
 
-#arial {
-position: relative;
- font-family: Arial Black ;
-}
-
-h1 {
- position: relative;
- font-family: Arial Black ;
-}
-
-</style>
-</head>
+        h1 {  
+            position: relative;  
+            font-family: Arial Black;  
+        }  
+    </style>  
+</head>  
 <body>
-
-
-
-<script>
-function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
-}
-
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-}
-</script>
-
-
-ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	background-color: #333;
-	position: fixed;
-	top: 0;
-	width: 100%;
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
+	<ul>
+	  <li><a class="active" href="#whatdowedo">What we do?</a></li>
+	  <li><a class="active" href="#whyarewedoingthis">But why?</a></li>
+	  <li><a class="active" href="#whatcanyoudo">So, what can I do?</a></li>
+	  <li style="float:right"><a class="active" href="#editor">Editor and Credits</a></li>
+	</ul>
 	
-li a:hover {
-  background-color: #111;
-}
-
-.active {
-  background-color: #04AA6D;
-}
-
-
-<!--<div class="topnav" id="arial">
-  <a href="#whatdowedo">What we do?</a>
-  <a href="#whyarewedoingthis">But why?</a>
-  <a href="#whatcanyoudo">So, what can I do?</a>
-  <a href="#editor" style="float:right">Editor and Credits</a>
-</div>-->
-
-<ul>
-  <li><a class="active" href="#whatdowedo">What we do?</a></li>
-  <li><a class="active" href="#whyarewedoingthis">But why?</a></li>
-  <li><a class="active" href="#whatcanyoudo">So, what can I do?</a></li>
-  <li style="float:right"><a class="active" href="#editor">Editor and Credits</a></li>
-</ul>
-
-<div class="header">
-  <h1>MyFarmer</h1>
-  <p id="arial">By Robo Farmer</p>
-</div>
-
-
-<div class="row">
-  <div class="leftcolumn">
-    <div class="card">
-      <h2 href="#whatdowedo" id="arial">What is this website</h2>
-      <p id="arial">gdfgdfgdfgdfgdfgdfgdfgd</p>
-      <p id="arial">gdfggfdfgdfgdfgd</p>
-	    <p id="arial">gdfggfdfgdfgdfgd</p>
-	    <p id="arial">gdfggfdfgdfgdfgd</p>
-
-	    <p id="arial">gdfggfdfgdfgdfgd</p>
-	    <p id="arial">gdfggfdfgdfgdfgd</p>
-	    <p id="arial">gdfggfdfgdfgdfgd</p>
-	    <p id="arial">gdfggfdfgdfgdfgd</p>
-	    <p id="arial">gdfggfdfgdfgdfgd</p>
-	    <p id="arial">gdfggfdfgdfgdfgd</p>
-	    <p id="arial">gdfggfdfgdfgdfgd</p>
-	    <p id="arial">gdfggfdfgdfgdfgd</p>
-	    <p id="arial">gdfggfdfgdfgdfgd</p>
-	    <p id="arial">gdfggfdfgdfgdfgd</p>
-	    <p id="arial">gdfggfdfgdfgdfgd</p>
-	    <p id="arial">gdfggfdfgdfgdfgd</p>
-	    <p id="arial">gdfggfdfgdfgdfgd</p>
-	    <p id="arial">gdfggfdfgdfgdfgd</p>
-	    <p id="arial">gdfggfdfgdfgdfgd</p>
-
-	    <p id="arial">gdfggfdfgdfgdfgd</p>
-	    <p id="arial">gdfggfdfgdfgdfgd</p>
-	    <p id="arial">gdfggfdfgdfgdfgd</p>
-	    <p id="arial">gdfggfdfgdfgdfgd</p>
-
-	    <p id="arial">gdfggfdfgdfgdfgd</p>
-	    <p id="arial">gdfggfdfgdfgdfgd</p>
-	    <p id="arial">gdfggfdfgdfgdfgd</p>
-	    <p id="arial">gdfggfdfgdfgdfgd</p>
-	    <p id="arial">gdfggfdfgdfgdfgd</p>
-	    <p id="arial">gdfggfdfgdfgdfgd</p>
-
-	    <p id="arial">gdfggfdfgdfgdfgd</p>
-	    <p id="arial">gdfggfdfgdfgdfgd</p>
-	    <p id="arial">gdfggfdfgdfgdfgd</p>
-	    <p id="arial">gdfggfdfgdfgdfgd</p>
-	    <p id="arial">gdfggfdfgdfgdfgd</p>
-    </div>
-  </div>
-  <div class="rightcolumn">
-    <div class="card" id="arial">
-      <h2 href="#editor">About Me</h2>
-      <img src="https://images.chesscomfiles.com/uploads/v1/user/135809396.fe04a5eb.160x160o.a81b4594b7a0.png" alt="Wait this didn't load for you. Uh, embarasiiiing." style="width:100%">
-      <p>Hello! I am Shakya Kumarage, creator of the work in progress. I have 7 year of coding - 7 years of Scratch, 5 years of Python, 4 year of Arduino and 2 years of HTML. Enjoy this website!</p>
-    </div>
-  </div>
-</div>
-
-<div class="footer">
-  <h6>All rights are preserved by ©Shakya Kumarage 2024. Any text or code that is stolen will be punished</h6>
-</div>
+	<div class="header">
+	  <h1>MyFarmer</h1>
+	  <p id="arial">By Robo Farmer</p>
+	</div>
+	
+	
+	<div class="row">
+	  <div class="leftcolumn">
+	    <div class="card">
+	      <h2 href="#whatdowedo" id="arial">What is this website</h2>
+	      <p id="arial">gdfgdfgdfgdfgdfgdfgdfgd</p>
+	      <p id="arial">gdfggfdfgdfgdfgd</p>
+		    <p id="arial">gdfggfdfgdfgdfgd</p>
+		    <p id="arial">gdfggfdfgdfgdfgd</p>
+	
+		    <p id="arial">gdfggfdfgdfgdfgd</p>
+		    <p id="arial">gdfggfdfgdfgdfgd</p>
+		    <p id="arial">gdfggfdfgdfgdfgd</p>
+		    <p id="arial">gdfggfdfgdfgdfgd</p>
+		    <p id="arial">gdfggfdfgdfgdfgd</p>
+		    <p id="arial">gdfggfdfgdfgdfgd</p>
+		    <p id="arial">gdfggfdfgdfgdfgd</p>
+		    <p id="arial">gdfggfdfgdfgdfgd</p>
+		    <p id="arial">gdfggfdfgdfgdfgd</p>
+		    <p id="arial">gdfggfdfgdfgdfgd</p>
+		    <p id="arial">gdfggfdfgdfgdfgd</p>
+		    <p id="arial">gdfggfdfgdfgdfgd</p>
+		    <p id="arial">gdfggfdfgdfgdfgd</p>
+		    <p id="arial">gdfggfdfgdfgdfgd</p>
+		    <p id="arial">gdfggfdfgdfgdfgd</p>
+	
+		    <p id="arial">gdfggfdfgdfgdfgd</p>
+		    <p id="arial">gdfggfdfgdfgdfgd</p>
+		    <p id="arial">gdfggfdfgdfgdfgd</p>
+		    <p id="arial">gdfggfdfgdfgdfgd</p>
+	
+		    <p id="arial">gdfggfdfgdfgdfgd</p>
+		    <p id="arial">gdfggfdfgdfgdfgd</p>
+		    <p id="arial">gdfggfdfgdfgdfgd</p>
+		    <p id="arial">gdfggfdfgdfgdfgd</p>
+		    <p id="arial">gdfggfdfgdfgdfgd</p>
+		    <p id="arial">gdfggfdfgdfgdfgd</p>
+	
+		    <p id="arial">gdfggfdfgdfgdfgd</p>
+		    <p id="arial">gdfggfdfgdfgdfgd</p>
+		    <p id="arial">gdfggfdfgdfgdfgd</p>
+		    <p id="arial">gdfggfdfgdfgdfgd</p>
+		    <p id="arial">gdfggfdfgdfgdfgd</p>
+	    </div>
+	  </div>
+	  <div class="rightcolumn">
+	    <div class="card" id="arial">
+	      <h2 href="#editor">About Me</h2>
+	      <img src="https://images.chesscomfiles.com/uploads/v1/user/135809396.fe04a5eb.160x160o.a81b4594b7a0.png" alt="Wait this didn't load for you. Uh, embarasiiiing." style="width:100%">
+	      <p>Hello! I am Shakya Kumarage, creator of the work in progress. I have 7 year of coding - 7 years of Scratch, 5 years of Python, 4 year of Arduino and 2 years of HTML. Enjoy this website!</p>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="footer">
+	  <h6>All rights are preserved by ©Shakya Kumarage 2024. Any text or code that is stolen will be punished</h6>
+	</div>
 
 
 </body>
